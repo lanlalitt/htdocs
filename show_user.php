@@ -1,14 +1,11 @@
 <?php
     session_start();
-    //9.fetch and delete record
     include_once 'dbconnectt.php';
 
-    // fetch records
     $sql = "SELECT * FROM users ORDER BY user_id DESC";
     $result = mysqli_query($con, $sql);
     $cnt = 1;
 
-    // delete record
     if (isset($_GET['user_id'])) {
         $sql = "DELETE FROM users where user_id = " . $_GET['user_id'];
         mysqli_query($con, $sql);
@@ -50,7 +47,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <!--10.show all users in this part of table -->
                     <?php while ($row = mysqli_fetch_array($result)) { ?>
                         <tr>
                             <td><?php echo $cnt++; ?></td>
@@ -66,22 +62,18 @@
                     </tbody>
                 </table>
                 </div>
-                <!--12.display number of records -->
                 <div>
                     <?php echo mysqli_num_rows($result) . " record(s) found.";?>
                 </div>
             </div>
         </div>
     </div>
-    <!--11.JavaScript for edit and delete actions -->
     <script>
-        //delete
         function delete_user(id) {
             if (confirm("Are you sure to delete this record?")){
                 window.location.href="show_user.php?user_id=" + id;
             }
         }   
     </script>
-
  </body>
  </html>

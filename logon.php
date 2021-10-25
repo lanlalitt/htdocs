@@ -1,23 +1,17 @@
 <?php
-	//4.check login info from users table
-	//start using session
 	session_start();
-
 	include_once 'dbconnectt.php';
 
-	//check whether login button is clicked
 	if (isset($_POST['logon'])) {
 		$email = $_POST['logon-email'];
 		$passwd = $_POST['logon-password'];
 
 		$sql = "SELECT * FROM users WHERE user_email = '". $email . "'
 		AND user_passwd = '" . md5($passwd) . "'";
-		// SELECT * FROM users WHERE user_email = 'ruchdee.b@psu.ac.th'
-		// AND user_passwd = '123123'
-
-		//execute คำสั่ง
+		
+		
 		$result = mysqli_query($con, $sql);
-		//เอาข้อมูลที่ได้จากการ execute มาแปลงเป็น array แล้วเก็บไว้ในตัวแปร row
+		
 		if ($row = mysqli_fetch_array($result)) {
 			$_SESSION['id'] = $row['user_id'];
 			$_SESSION['name'] = $row['user_name'];
@@ -72,7 +66,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <!--5.display message -->
+               
                 <span class="text-danger">
                     <?php
                         if(isset($error_msg)){

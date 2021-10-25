@@ -1,5 +1,4 @@
 <?php
-	//7.check admin username and password, set admin name as "admin" and password as "pass1234"
 	session_start();
 	if (isset($_POST['admin-logon'])){
 		$admin_name = $_POST['admin-name'];
@@ -58,7 +57,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <!--8.display message -->
+                
                 <span class="text-danger">
                     <?php if (isset($error_msg)) { echo $error_msg; } ?>
                 </span>

@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
-                    <!--6.if already logged in, change menu items -->
+                    
                 <?php if (isset($_SESSION['id'])){ ?>
                     <li><p class="navbar-text"> Signed in as <?php echo $_SESSION['name']; ?></p></li> &nbsp; &nbsp;
                     <li><a class="nav-link" href="logout.php"> Log Out </a></li>
